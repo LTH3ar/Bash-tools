@@ -1,6 +1,8 @@
 print("list of options: ")
+
 print('0: exit \n1:Horizontal range')
 choice = int(input('Please choose an option: '))
+
 while choice in range(0, 2):
     match choice:
         case 0:
@@ -8,7 +10,6 @@ while choice in range(0, 2):
             exit()
         case 1:
             print("System is on")
-        
             print("Calculator start")
             print("Please note that this calculator can only calculate Horizontal range of a throwing object for now")
 
