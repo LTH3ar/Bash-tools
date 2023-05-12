@@ -1,2 +1,2 @@
-# Calculator-for-whatever
-well, just a bunch of whatever calculators
+# Bash tools
+well, the name said it.
