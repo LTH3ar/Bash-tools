@@ -19,38 +19,56 @@ then
 fi
 
 filename=$1
+pkg=$2
 echo $filename
-read -r pkg < $filename
+read -r pkgs < $filename
 echo $pkg
 
 if [ $pkg = pacman ]
 then
     echo "Reinstalling"
-    while read line; do
+    while read line
+    do
         echo $line
         sudo pacman -S $line --noconfirm
     done < $filename
+
 elif [ $pkg = apt ]
 then
     echo "Reinstalling"
-    while read line; do
+    while read line
+    do
         echo $line
         sudo apt install $line -y
     done < $filename
+
 elif [ $pkg = yum ]
 then
     echo "Reinstalling"
-    while read line; do
+    while read line
+    do
         echo $line
         sudo yum install $line -y
     done < $filename
+
 elif [ $pkg = dnf ]
 then
     echo "Reinstalling"
-    while read line; do
+    while read line
+    do
         echo $line
         sudo dnf install $line -y
     done < $filename
+
+elif [ $pkg = pkg ]
+then
+    echo "Reinstalling"
+    while read line
+    do
+        echo $line
+        pkg install $line -y
+    done < $filename
+
 else
     echo "No package manager found"
 fi
